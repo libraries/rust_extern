@@ -15,3 +15,11 @@ function round_circumference(r: Round): number {
 function round_area(r: Round): number {
     return r.radius * r.radius * 3;
 }
+
+function new_point(x: number, y: number): Point {
+    const p: Point = {
+        x: x,
+        y: y,
+    };
+    return p;
+}

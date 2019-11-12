@@ -14,12 +14,16 @@ pub struct Round {
 extern "C" {
     fn round_circumference(r: &Round) -> cty::c_int;
     fn round_area(r: &Round) -> cty::c_int;
+    fn new_point(x: cty::c_int, y: cty::c_int) -> Point;
 }
 
 fn main() {
     unsafe {
-        let point = Point{ x: 0, y: 0};
-        let round = Round{ center: point, radius: 2};
+        let point = new_point(0, 0);
+        let round = Round {
+            center: point,
+            radius: 2,
+        };
 
         let circumference = round_circumference(&round);
         let area = round_area(&round);

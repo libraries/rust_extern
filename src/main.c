@@ -2,7 +2,7 @@
 #include "draw.h"
 
 int main() {
-    Point center = {0, 0};
+    Point center = new_point(0, 0);
     Round round = {center, 2};
 
     int circumference = round_circumference(&round);
