@@ -5,3 +5,4 @@ authors = ["mohanson <mohanson@outlook.com>"]
 edition = "2018"
 
 [dependencies]
+cty = "0.2.0"

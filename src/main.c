@@ -1,8 +1,14 @@
 #include <stdio.h>
-#include "doubler.h"
+#include "draw.h"
 
 int main() {
-    printf("%i\n", doubler(1));
+    Point center = {0, 0};
+    Round round = {center, 2};
+
+    int circumference = round_circumference(&round);
+    int area = round_area(&round);
+
+    printf("circumference=%i area=%i\n", circumference, area);
     return 0;
 }
 

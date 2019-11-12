@@ -21,3 +21,18 @@ $ ts-node src/index.ts build doubler.ts -o doubler.ll
 $ clang -shared -undefined dynamic_lookup doubler.ll -o libdoubler.so
 $ RUSTFLAGS="-L /src/rust_extern/src" cargo run
 ```
+
+# Rust 调用 C 函数
+
+```
+$ cd src
+$ clang draw.c -c -o libdraw.so
+$ clang main.c libdraw.so -o main
+```
+
+```
+$ cd src
+$ rustc main.rs -L . -o main
+# or
+$ RUSTFLAGS="-L /src/rust_extern/src" cargo run
+```
