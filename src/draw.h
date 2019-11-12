@@ -10,3 +10,4 @@ typedef struct Round {
 
 int round_circumference(Round *r);
 int round_area(Round *r);
+Point new_point(int x, int y);

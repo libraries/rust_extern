@@ -25,3 +25,16 @@ body:
   %5 = mul i64 %4, 3
   ret i64 %5
 }
+
+define %Point* @new_point(i64 %x, i64 %y) {
+body:
+  %0 = alloca %Point
+  %1 = getelementptr inbounds %Point, %Point* %0, i32 0, i32 0
+  store i64 %x, i64* %1
+  %2 = getelementptr inbounds %Point, %Point* %0, i32 0, i32 1
+  store i64 %y, i64* %2
+  %p = alloca %Point*
+  store %Point* %0, %Point** %p
+  %3 = load %Point*, %Point** %p
+  ret %Point* %3
+}
