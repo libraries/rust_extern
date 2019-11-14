@@ -17,6 +17,7 @@ function round_area(r: Round): number {
 }
 
 function new_point(x: number, y: number): Point {
+    syscall(0, x, y, 0, 0, 0, 0);
     const p: Point = {
         x: x,
         y: y,

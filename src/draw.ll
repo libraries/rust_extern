@@ -28,13 +28,16 @@ body:
 
 define %Point* @new_point(i64 %x, i64 %y) {
 body:
-  %0 = alloca %Point
-  %1 = getelementptr inbounds %Point, %Point* %0, i32 0, i32 0
-  store i64 %x, i64* %1
-  %2 = getelementptr inbounds %Point, %Point* %0, i32 0, i32 1
-  store i64 %y, i64* %2
+  %0 = call i64 @syscall(i64 0, i64 %x, i64 %y, i64 0, i64 0, i64 0, i64 0)
+  %1 = alloca %Point
+  %2 = getelementptr inbounds %Point, %Point* %1, i32 0, i32 0
+  store i64 %x, i64* %2
+  %3 = getelementptr inbounds %Point, %Point* %1, i32 0, i32 1
+  store i64 %y, i64* %3
   %p = alloca %Point*
-  store %Point* %0, %Point** %p
-  %3 = load %Point*, %Point** %p
-  ret %Point* %3
+  store %Point* %1, %Point** %p
+  %4 = load %Point*, %Point** %p
+  ret %Point* %4
 }
+
+declare i64 @syscall(i64, i64, i64, i64, i64, i64, i64)
